@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "Odoo UML",
-
+    "development_status": "Alpha",  # "Alpha|Beta|Production/Stable|Mature"
     'summary': """
         Ingeniería Inversa con diagramas UML.""",
 
