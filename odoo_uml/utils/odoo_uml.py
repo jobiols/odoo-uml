@@ -39,8 +39,6 @@ API_DECORATORS = [
 
 
 def GET_METHODS(CLS, module_name=None):
-    import wdb;wdb.set_trace()
-
     members = inspect.getmembers(CLS, predicate=lambda m: inspect.ismethod(m))
     methods = []
     for name, value in members:
