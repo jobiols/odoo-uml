@@ -1,0 +1,105 @@
+@startuml
+package "mrp_repair" as mrp_repair <<application>> #Yellow {
+	
+}
+package "stock" as stock <<application>> #LightYellow {
+	
+}
+package "product" as product <<module>> #White {
+	
+}
+package "base" as base <<module>> #White {
+	
+}
+product ..> base
+package "decimal_precision" as decimal_precision <<module>> #White {
+	
+}
+decimal_precision ..> base
+product ..> decimal_precision
+package "mail" as mail <<application>> #LightYellow {
+	
+}
+mail ..> base
+package "base_setup" as base_setup <<module>> #White {
+	
+}
+base_setup ..> base
+package "web_kanban" as web_kanban <<module>> #White {
+	
+}
+package "web" as web <<module>> #White {
+	
+}
+web ..> base
+web_kanban ..> web
+base_setup ..> web_kanban
+mail ..> base_setup
+package "bus" as bus <<module>> #White {
+	
+}
+bus ..> base
+bus ..> web
+mail ..> bus
+package "web_tour" as web_tour <<module>> #White {
+	
+}
+web_tour ..> web
+mail ..> web_tour
+product ..> mail
+package "report" as report <<module>> #White {
+	
+}
+report ..> base
+report ..> web
+report ..> base_setup
+product ..> report
+stock ..> product
+package "procurement" as procurement <<module>> #White {
+	
+}
+procurement ..> base
+procurement ..> product
+stock ..> procurement
+package "barcodes" as barcodes <<module>> #White {
+	
+}
+barcodes ..> web
+stock ..> barcodes
+package "web_planner" as web_planner <<module>> #White {
+	
+}
+web_planner ..> web
+stock ..> web_planner
+mrp_repair ..> stock
+package "sale" as sale <<application>> #LightYellow {
+	
+}
+package "sales_team" as sales_team <<module>> #White {
+	
+}
+sales_team ..> base
+sales_team ..> mail
+sale ..> sales_team
+package "account" as account <<application>> #LightYellow {
+	
+}
+account ..> base_setup
+account ..> product
+package "analytic" as analytic <<module>> #White {
+	
+}
+analytic ..> base
+analytic ..> decimal_precision
+analytic ..> mail
+analytic ..> report
+account ..> analytic
+account ..> report
+account ..> web_planner
+sale ..> account
+sale ..> procurement
+sale ..> report
+sale ..> web_tour
+mrp_repair ..> sale
+mrp_repair ..> account
+@enduml

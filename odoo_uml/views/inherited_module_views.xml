@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        
+        <!-- VIEWS: "Inprove Module Views"
+        
+            - Model·········: ir.module.module
+            - Base Addons···: base    
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+        
+        <!-- Form view for "${2/(.)/\1/g}" -->
+        <record id="view_module_form" model="ir.ui.view">
+            <field name="name">view.module.form</field>
+            <field name="model">ir.module.module</field>
+            <field name="inherit_id" ref="base.module_form" />
+            <field name="arch" type="xml">
+                
+                <xpath expr="//notebook[@groups='base.group_no_one']" position="inside">
+                    <page string="UML" name="uml_diagrams">
+                        <field name="puml_dependency_diagram_png" widget="image"/>
+                        <field name="puml_inv_dependency_diagram_png" widget="image"/>
+                        <field name="puml_class_diagram_png" widget="image"/>
+                    </page>
+                </xpath>
+                
+            </field>
+        </record>
+    </data>
+</odoo>
