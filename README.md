@@ -21,6 +21,14 @@ Credits
 -------
 This module is based on the work of Ing. Armando Robert Lobo http://www.github.com/arobertlobo5
 
+Requirements
+------------
+**java**
+
+    # apt-get update && apt-get install default-jdk -y
+
+
+
 Warning
 -------
 This module is still under development, is not fully functional yet. Stay tuned.
