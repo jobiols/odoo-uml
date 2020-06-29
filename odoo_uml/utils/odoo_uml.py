@@ -37,15 +37,60 @@ API_DECORATORS = [
     'v8'
 ]
 
+def getmembers(object, predicate=None):
+    """
+        Return all members of an object as (name, value) pairs sorted by name.
+        Optionally, only return members that satisfy a given predicate.
+    """
+    if inspect.isclass(object):
+        mro = (object,) + inspect.getmro(object)
+    else:
+        mro = ()
+    results = []
+    processed = set()
+    names = dir(object)
+    # :dd any DynamicClassAttributes to the list of names if object is a class;
+    # this may result in duplicate entries if, for example, a virtual
+    # attribute with the same name as a DynamicClassAttribute exists
+    try:
+        for base in object.__bases__:
+            for k, v in base.__dict__.items():
+                if isinstance(v, inspect.types.DynamicClassAttribute):
+                    names.append(k)
+    except AttributeError:
+        pass
+    for key in names:
+        # First try to get the value via getattr.  Some descriptors don't
+        # like calling their __get__ (see bug #1785), so fall back to
+        # looking in the __dict__.
+        try:
+            try:
+                value = getattr(object, key)
+            except Exception:
+                pass
+
+            # handle the duplicate key
+            if key in processed:
+                raise AttributeError
+        except AttributeError:
+
+            for base in mro:
+                if key in base.__dict__:
+                    value = base.__dict__[key]
+                    break
+            else:
+                # could be a (currently) missing slot member, or a buggy
+                # __dir__; discard and move on
+                continue
+        if not predicate or predicate(value):
+            results.append((key, value))
+        processed.add(key)
+    results.sort(key=lambda pair: pair[0])
+    return results
+
 
 def GET_METHODS(CLS, module_name=None):
-
-    print('GET METHOD ------------>', module_name)
-    if module_name == 'odoo_uml':
-
-        import wdb;wdb.set_trace()
-
-    members = inspect.getmembers(CLS, predicate=lambda m: inspect.ismethod(m))
+    members = getmembers(CLS, predicate=lambda m: inspect.ismethod(m))
 
     methods = []
     for name, value in members:
@@ -479,12 +524,9 @@ class ClassDiagram(PlantUMLClassDiagram, UtilMixin):
 
     def __detect_methods(self, model):
 
-        import wdb;wdb.set_trace()
-
         module, model = self._resolve(model.model)
         rec = ClassDiagram.record_model(model)
 
-        rec = model
         methods = GET_METHODS(rec, module.name)
         overrrides = []
         bases = [rec._inherit] if isinstance(rec._inherit, str) else rec._inherit
@@ -525,7 +567,7 @@ class ClassDiagram(PlantUMLClassDiagram, UtilMixin):
 
         methods, overrides = self.__detect_methods(model)
         rec = ClassDiagram.record_model(model)
-        hash_methods = {key: value for key, value in inspect.getmembers(rec)}
+        hash_methods = {key: value for key, value in getmembers(rec)}
         if methods:
             self.add_section()
         for method in methods:
