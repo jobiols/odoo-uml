@@ -10,7 +10,7 @@ from subprocess import Popen
 from base64 import b64encode
 from tempfile import NamedTemporaryFile
 
-from openerp import models, _
+from odoo import models, _
 from .plant_uml import PlantUMLClassDiagram, italic, bold
 
 PIPE = -1
@@ -39,7 +39,14 @@ API_DECORATORS = [
 
 
 def GET_METHODS(CLS, module_name=None):
+
+    print('GET METHOD ------------>', module_name)
+    if module_name == 'odoo_uml':
+
+        import wdb;wdb.set_trace()
+
     members = inspect.getmembers(CLS, predicate=lambda m: inspect.ismethod(m))
+
     methods = []
     for name, value in members:
         if module_name:
@@ -471,8 +478,13 @@ class ClassDiagram(PlantUMLClassDiagram, UtilMixin):
         return self
 
     def __detect_methods(self, model):
+
+        import wdb;wdb.set_trace()
+
         module, model = self._resolve(model.model)
         rec = ClassDiagram.record_model(model)
+
+        rec = model
         methods = GET_METHODS(rec, module.name)
         overrrides = []
         bases = [rec._inherit] if isinstance(rec._inherit, str) else rec._inherit
