@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "test11_prod",
+            "driver": "PostgreSQL",
+            "name": "test11",
+            "username": "odoo",
+            "password": "odoo",
+            "port": 5432,
+            "previewLimit": 50,
+            "server": "localhost",
+        }
+    ]
+}
