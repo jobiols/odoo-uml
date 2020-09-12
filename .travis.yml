@@ -8,8 +8,12 @@ addons:
     packages:
       - expect-dev  # provides unbuffer utility
       - python-lxml # because pip installation is slow
-      - python3-dev # para que instale cups
-      - libcups2-dev # para que instale cups
+      - python-simplejson
+      - python-serial
+      - python-yaml
+      - cups
+      - libcups2-dev
+      - python3-dev
 
 python:
   - "3.6"
@@ -26,8 +30,7 @@ git:
   depth: 1
 
 install:
-  - pip install -r requirements.txt
-  - git clone --depth=1 https://github.com/jobiols/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
+  - git clone --depth=1 https://github.com/oca/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - pip install --upgrade python-magic
   - travis_install_nightly
