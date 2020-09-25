@@ -68,9 +68,9 @@ def deflate_and_encode(plantuml_text):
 
 class PlantUML(object):
     """Connection to a PlantUML server with optional authentication.
-    
+
     All parameters are optional.
-    
+
     :param str url: URL to the PlantUML server image CGI. defaults to
                     http://www.plantuml.com/plantuml/img/
     :param dict basic_auth: This is if the plantuml server requires basic HTTP
@@ -91,7 +91,7 @@ class PlantUML(object):
                     httplib2.Http() constructor.
     :param dict request_opts: Extra options to be passed off to the
                     httplib2.Http().request() call.
-                    
+
     """
 
     def __init__(self, url, basic_auth={}, form_auth={},

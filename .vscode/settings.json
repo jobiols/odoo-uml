@@ -1,0 +1,21 @@
+{
+    "restructuredtext.confPath": "",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_odoo",
+        "-d C0114,C0115,C0116"
+    ],
+    "sqltools.connections": [
+        {
+            "database": "test11_prod",
+            "driver": "PostgreSQL",
+            "name": "test11",
+            "username": "odoo",
+            "password": "odoo",
+            "port": 5432,
+            "previewLimit": 50,
+            "server": "localhost",
+        }
+    ]
+}

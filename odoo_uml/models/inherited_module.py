@@ -1,5 +1,4 @@
 
-# -*- coding: utf-8 -*-
 ###############################################################################
 #    License, author and contributors information in:                         #
 #    __manifest__.py file at the root folder of this module.                  #
@@ -7,15 +6,15 @@
 
 import logging
 
-from openerp import models, fields, api, _
+from odoo import models, fields, api, _
 
 try:
-    from openerp.addons.odoo_uml.utils.plant_uml import PlantUMLClassDiagram, bold, italic
+    from odoo.addons.odoo_uml.utils.plant_uml import PlantUMLClassDiagram, bold, italic
 except ImportError:
     from ..utils.plant_uml import PlantUMLClassDiagram, bold, italic
 
 try:
-    from openerp.addons.odoo_uml.utils.odoo_uml import PackageDiagram, InvPackageDiagram, ClassDiagram
+    from odoo.addons.odoo_uml.utils.odoo_uml import PackageDiagram, InvPackageDiagram, ClassDiagram
 except ImportError:
     from ..utils.odoo_uml import PackageDiagram, InvPackageDiagram, ClassDiagram
 
