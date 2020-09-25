@@ -7,107 +7,51 @@ Odoo UML
    !! changes will be overwritten.                   !!
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-.. |badge1| image:: https://img.shields.io/badge/maturity-Alpha-red.png
+.. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
-    :alt: Alpha
-.. |badge2| image:: https://img.shields.io/badge/github-jeo Software%2Fodoo--uml-lightgray.png?logo=github
+    :alt: Beta
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
+    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+    :alt: License: AGPL-3
+.. |badge3| image:: https://img.shields.io/badge/github-jeo Software%2Fodoo--uml-lightgray.png?logo=github
     :target: https://github.com/jeo Software/odoo-uml/tree/11.0/odoo_uml
     :alt: jeo Software/odoo-uml
 
-|badge1| |badge2| 
+|badge1| |badge2| |badge3| 
 
-[ This file must be max 2-3 paragraphs, and is required. ]
+Ingeniería Inversa con diagramas UML
+------------------------------------
 
-This module extends the functionality of ... to support ...
-and to allow you to ...
+El presente es un módulo orientado a los desarrolladores sobre las tecnologías de Odoo, persigue el:
 
+**Objetivo**: Representar las principales decisiones de diseño tomadas en el 
+desarrollo de un módulo a través de diferentes diagramas UML.
 
-.. IMPORTANT::
-   This is an alpha version, the data model and design can change at any time without warning.
-   Only for development or testing purpose, do not use in production.
-   `More details on development status <https://odoo-community.org/page/development-status>`_
+Principales Características
+---------------------------
+
+#.  Diagrama de Paquetes "Dependencias del módulo": provee una vista de las 
+    dependencias del módulo. Admite algunas configuraciones para facilitar 
+    la vizualización:
+
+    - Mostrar estructura interna, clases del modelo y vistas.
+    - Relaciones entre elementos internos (muestra las relaciones entre clases)
+    - Relaciones con elementos externos (muestra relaciones entre clases y vistas 
+      con otros módulos)
+
+#.  Diagrama de Clases "Modelos": provee una vista de los datos gestionados en el módulo.
 
 **Table of contents**
 
 .. contents::
    :local:
 
-Installation
-============
-
-[ This file must only be present if there are very specific
-  installation instructions, such as installing non-python
-  dependencies. The audience is systems administrators. ]
-
-To install this module, you need to:
-
-#. Do this ...
-
-Configuration
-=============
-
-[ This file is optional, it should explain how to configure
-  the module before using it; it is aimed at advanced users. ]
-
-To configure this module, you need to:
-
-#. Go to ...
-
-.. figure:: https://raw.githubusercontent.com/jeo Software/odoo-uml/11.0/odoo_uml/static/description/image.png
-   :alt: alternative description
-   :width: 600 px
-
 Usage
 =====
 
-[ This file must be present and contains the usage instructions
-  for end-users. As all other rst files included in the README,
-  it MUST NOT contain reStructuredText sections
-  only body text (paragraphs, lists, tables, etc). Should you need
-  a more elaborate structure to explain the addon, please create a
-  Sphinx documentation (which may include this file as a "quick start"
-  section). ]
-
-To use this module, you need to:
-
-#. Go to ...
-
-Known issues / Roadmap
-======================
-
-[ Enumerate known caveats and future potential improvements.
-  It is mostly intended for end-users, and can also help
-  potential new contributors discovering new features to implement. ]
-
-* ...
-
-Changelog
-=========
-
-[ The change log. The goal of this file is to help readers
-  understand changes between version. The primary audience is
-  end users and integrators. Purely technical changes such as
-  code refactoring must not be mentioned here. 
-  
-  This file may contain ONE level of section titles, underlined
-  with the ~ (tilde) character. Other section markers are 
-  forbidden and will likely break the structure of the README.rst
-  or other documents where this fragment is included. ]
-
-11.0.x.y.z (YYYY-MM-DD)
-~~~~~~~~~~~~~~~~~~~~~~~
-
-* [BREAKING] Breaking changes come first.
-  (`#70 <https://github.com/OCA/repo/issues/70>`_)
-* [ADD] New feature.
-  (`#74 <https://github.com/OCA/repo/issues/74>`_)
-* [FIX] Correct this.
-  (`#71 <https://github.com/OCA/repo/issues/71>`_)
-
-11.0.x.y.z (YYYY-MM-DD)
-~~~~~~~~~~~~~~~~~~~~~~~
-
-* ...
+- Set developer mode
+- Go to Applications
+- Note the new UML tab
 
 Bug Tracker
 ===========
@@ -125,27 +69,16 @@ Credits
 Authors
 ~~~~~~~
 
-* Ing. Armando Robert Lobo
+* jeo Software
 
 Contributors
 ~~~~~~~~~~~~
 
 * Jorge Obiols <jorge.obiols@gmail.com> (www.jeosoft.com.ar)
 
-Other credits
-~~~~~~~~~~~~~
-
-[ This file is optional and contains additional credits, other than
-  authors, contributors, and maintainers. ]
-
-The development of this module has been financially supported by:
-
-* Company 1 name
-* Company 2 name
-
 Maintainers
 ~~~~~~~~~~~
 
-This module is part of the `jeo Software/odoo-uml <https://github.com/jeo Software/odoo-uml/tree/11.0/odoo_uml>`_ project on GitHub.
+This module is part of the `jeo Software/odoo-uml <https://github.com/jobiols/odoo-uml/tree/11.0/odoo_uml>`_ project on GitHub.
 
 You are welcome to contribute.
