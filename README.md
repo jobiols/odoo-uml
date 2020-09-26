@@ -28,7 +28,3 @@ This module is based on the work of Ing. Armando Robert Lobo [www.github.com/aro
 We need java installed on server to run plantuml
 
     # apt-get update && apt-get install default-jdk -y
-
-## Warning
-
-This module is still under development, is not fully functional yet. Stay tuned.
