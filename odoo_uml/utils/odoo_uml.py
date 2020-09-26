@@ -125,7 +125,7 @@ class UtilMixin(object):
         '''
         _logger.info('Run external command: %s.', ' '.join(args))
         process = Popen(args, stdout=PIPE, stderr=PIPE)
-        std_out = str()
+        std_out = bytes()
         while process.poll() is None:
             line = process.stdout.readline()
             if line:
@@ -156,6 +156,7 @@ class UtilMixin(object):
         return b64image
 
     def _produce_diagram_image(self):
+
         f_out_puml = NamedTemporaryFile(mode='w', delete=False)
         f_out_puml.write(self.to_puml())
         f_out_puml.close()
