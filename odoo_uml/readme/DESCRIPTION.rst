@@ -10,8 +10,8 @@ Principales Características
 ---------------------------
 
 #.  Diagrama de Paquetes "Dependencias del módulo": provee una vista de las 
-    dependencias del módulo. Admite algunas configuraciones para facilitar 
-    la vizualización:
+    dependencias del módulo. Admite algunas configuraciones para facilitar la
+    vizualización:
 
     - Mostrar estructura interna, clases del modelo y vistas.
     - Relaciones entre elementos internos (muestra las relaciones entre clases)
