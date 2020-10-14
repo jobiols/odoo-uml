@@ -20,6 +20,7 @@
                         <field name="puml_dependency_diagram_png" widget="image"/>
                         <field name="puml_inv_dependency_diagram_png" widget="image"/>
                         <field name="puml_class_diagram_png" widget="image"/>
+                        <field name="puml_class_diagram_uml"/>
                     </page>
                 </xpath>
                 

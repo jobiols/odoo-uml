@@ -152,12 +152,13 @@ class UtilMixin(object):
             :return: image as base64 encoded.
             :rtype: string
         '''
-        b64image, self.log = self._produce_diagram_image()
+        b64image, self.log, self.uml = self._produce_diagram_image()
         return b64image
 
     def _produce_diagram_image(self):
         f_out_puml = NamedTemporaryFile(mode='w', delete=False)
-        f_out_puml.write(self.to_puml())
+        uml = self.to_puml()
+        f_out_puml.write(uml)
         f_out_puml.close()
 
         log = UtilMixin.execute_cmd(
@@ -172,7 +173,7 @@ class UtilMixin(object):
         unlink(f_out_puml.name)
         unlink(f_out_diagram.name)
 
-        return image, log
+        return image, log, uml
 
 
 class ClassDiagram(PlantUMLClassDiagram, UtilMixin):

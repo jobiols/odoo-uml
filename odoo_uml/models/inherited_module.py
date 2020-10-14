@@ -67,6 +67,11 @@ class Module(models.Model):
         help='Class diagram as encode base64 PNG image.',
         compute='_compute_diagrams'
     )
+    puml_class_diagram_uml = fields.Text(
+        string="Class Diagram Text",
+        help='Class diagram as text.',
+        compute='_compute_diagrams'
+    )
 
     puml_diagram_log = fields.Text(
         u'Dependency diagram log',
@@ -136,3 +141,4 @@ class Module(models.Model):
                 **kwargs
             )
             module.puml_class_diagram_png = diagram.to_png_base64()
+            module.puml_class_diagram_uml = diagram.uml
